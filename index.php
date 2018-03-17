@@ -23,6 +23,7 @@
                 <li><a href="auto.php">Автомобили</a></li>
                 <li><a href="planes.html">Самолёты</a></li>
                 <li><a href="calendarPage.php">Календарь</a></li>
+                <li><a href="fileSystem/fileSystem.php">Файловый менеджер</a></li>
             </ul>
         </div>
         <div id="content">
