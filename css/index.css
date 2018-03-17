@@ -1,0 +1,47 @@
+#menu {
+    margin: 20px;
+    padding: 10px;
+    border: 6px groove saddlebrown;
+    float: left;
+    width: 250px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    margin: 40px 0;
+    text-align: center;
+    font-weight: bold;
+    list-style-type: none;
+    font-size: 26px;
+}
+
+#menu a:hover {
+   color: green;
+   font-style: italic;
+}
+
+img {
+    margin: 10px;
+}
+
+#photo1 {
+    float: right;
+    width: 500px;
+    height: 350px;
+}
+
+#photo2 {
+    margin: 20px;
+    float: left;
+    width: 600px;
+    height: 350px;
+}
+
+#photo2:hover {
+    margin: 20px 15px;
+    width: 610px;
+    height: 360px;
+}

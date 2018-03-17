@@ -1,0 +1,39 @@
+body {
+    background-image: url(../images/style4.jpg);
+}
+
+#wrapper {
+    background-color: #CBF6FF;
+}
+
+img {
+    margin: 10px;
+}
+
+#mosinaPhoto {
+    float: right;
+    width: 500px;
+    height: 320px;
+}
+
+#photoPPD {
+    float: left;
+    width: 550px;
+    height: 220px;
+}
+
+#photoDP {
+    float: right;
+    width: 650px;
+    height: 300px;
+}
+
+#photoMP {
+    float: left;
+    width: 450px;
+    height: 250px;
+}
+
+#footer p:hover {
+    color: #2B5598;
+}

@@ -1,0 +1,64 @@
+html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+body {
+    background-image: url(../images/style2.jpg);
+}
+
+#wrapper {
+    margin: 20px auto;
+    width: 1200px;
+    padding: 20px 40px;
+    background-color: #B1AC82;
+}
+
+#header h1, h2{
+    text-align: center;
+}
+
+#content {
+    padding: 20px;
+}
+
+#footer {
+    height: 100px;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h4 {
+    font-size: 25px;
+    text-indent: 40px;
+}
+
+p {
+    font-size: 20px;
+    font-family: Arial;
+    text-indent: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+#footer p {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#footer a:hover {
+    color: green;
+    font-style: italic;
+}

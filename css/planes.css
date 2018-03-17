@@ -1,0 +1,33 @@
+body {
+    background-image: url(../images/style3.jpg);
+}
+
+#wrapper {
+    background-color: #AEBFCF;
+}
+
+img {
+    margin: 10px;
+}
+
+#photoIL2 {
+    float: left;
+    width: 450px;
+    height: 300px;
+}
+
+#photoIAK-3 {
+    float: right;
+    width: 350px;
+    height: 270px;
+}
+
+#photoBoeing {
+    float: left;
+    width: 450px;
+    height: 300px;
+}
+
+#footer p:hover {
+    color: #2B5598;
+}

@@ -1,0 +1,29 @@
+#wrapper {
+    background-color: whitesmoke;
+}
+
+table {
+    font-size: 30px;
+    margin: 20px auto;
+    border: 1px solid green;
+}
+
+table td {
+    border: 2px solid blue;
+}
+
+form {
+    font-size: 30px;
+}
+
+form input {
+    font-size: 30px;
+}
+
+#panel {
+    margin: 20px 300px;
+}
+
+.celebration {
+    color: red;
+}

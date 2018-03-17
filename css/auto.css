@@ -1,0 +1,40 @@
+body {
+    background-image: url(../images/style5.jpg);
+}
+
+#wrapper {
+    background-color: #D8CF82;
+}
+
+img {
+    margin: 10px;
+}
+
+#photo1 {
+    float: left;
+    margin: 20px;
+    width: 500px;
+    height: 350px;
+}
+
+#photo2 {
+    float: right;
+    width: 600px;
+    height: 450px;
+}
+
+#photo3 {
+    float: left;
+    width: 600px;
+    height: 400px;
+}
+
+table {
+    margin: 20px;
+    font-size: 30px;
+    border-spacing: 0;
+}
+
+td {
+    padding: 5px;
+}

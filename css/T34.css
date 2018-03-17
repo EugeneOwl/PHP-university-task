@@ -1,0 +1,29 @@
+img {
+    margin: 10px;
+}
+
+body {
+    background-image: url(../images/style.jpg);
+}
+
+#wrapper {
+    background-color: #C4C67B;
+}
+
+#photo1 {
+    float: left;
+    width: 500px;
+    height: 350px;
+}
+
+#photo2 {
+    float: right;
+    width: 500px;
+    height: 350px;
+}
+
+#photo3 {
+    float: left;
+    width: 600px;
+    height: 400px;
+}
