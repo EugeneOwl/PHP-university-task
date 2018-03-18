@@ -6,7 +6,7 @@ function createPanel(string $path): string
         if ($_GET["page"] == "new") {
             $panel = processAdding($path);
         } elseif ($_GET["page"] == "replace") {
-            $panel = processReplacing($path, $_GET["replaceNumber"]);
+            $panel = processRenaming($path, $_GET["replaceNumber"]);
         }
     } else {
         if (isset($_GET["remove"])) {
@@ -17,24 +17,27 @@ function createPanel(string $path): string
     return $panel;
 }
 
-function processReplacing(string $path,  $number): string
+function processRenaming(string $path, $number): string
 {
     if (isset($_POST["filePath"])) {
-        replaceFile($path, $_POST["filePath"], $number);
+        renameFile($path, $_POST["filePath"], $number);
     }
-    $panel = drawReplacingPanel($path, $number);
+    $panel = drawRenamingPanel($path, $number);
     return $panel;
 }
 
-function replaceFile(string $path, string $newPath, int $number): void
+function renameFile(string $path, string $newPath, int $number): void
 {
-    var_dump(rename(
+    if (rename(
         $path . basename(getFullFileNames($path)[$number]),
-        $path . $newPath . basename(getFullFileNames($path)[$number])
-    ));
+        $newPath
+    )) {
+        goToMain();
+    }
+    echo "<script>alert('Problems with file replacing')</script>";
 }
 
-function drawReplacingPanel(string $path, int $number): string
+function drawRenamingPanel(string $path, int $number): string
 {
     $panel = "<form method='post'><table>";
     $panel .= "
@@ -42,13 +45,13 @@ function drawReplacingPanel(string $path, int $number): string
                 <th>Name</th>
             </tr>
             <tr>
-                <td>" . basename(getFullFileNames($path)[$number]) . "</td>
+                <td>" . getFullFileNames($path)[$number] . "</td>
             </tr>
             <tr>
-                <td><input type='text' placeholder='path' name='filePath'></td>
+                <td><input type='text' placeholder='path' name='filePath' class='filePath' value='" . getFullFileNames($path)[$number] . "'></td>
             </tr>
             <tr>
-                <td><input type='submit' value='replace'></td>
+                <td><input type='submit' value='Rename'></td>
             </tr>
         ";
     $panel .= "</table></form>";
@@ -68,7 +71,11 @@ function processAdding(string $path): string
 function removeFile( string $path, int $number): void
 {
     $fileNames = getFullFileNames($path);
-    unlink($fileNames[$number]);
+    if (is_dir($fileNames[$number])) {
+        rmdir($fileNames[$number]);
+    } else {
+        unlink($fileNames[$number]);
+    }
 }
 
 function createNew(string $path, string $fileName, $fileContents, $fileType): void
@@ -79,13 +86,13 @@ function createNew(string $path, string $fileName, $fileContents, $fileType): vo
             $fileContents = " ";
         }
         if (fwrite($newFile, $fileContents)) {
-            echo "<script>location.href='fileSystem.php'</script>";
+            goToMain();
         } else {
             echo "<script>alert('Problems with file creation')</script>";
         }
     } else {
         if (mkdir($path . $fileName, 0775)) {
-            echo "<script>location.href='fileSystem.php'</script>";
+            goToMain();
         }else {
             echo "<script>alert('Problems with directory creation')</script>";
         }
@@ -137,12 +144,42 @@ function drawEditingPanel(string $path): string
                 <td>" . basename($fileName) . "</td>
                 <td>
                     <a id='$number' href='?remove=$number'>Remove</a>
-                    <a id='$number' href='?page=replace&replaceNumber=$number'>Replace</a>
+                    <a id='$number' href='?page=replace&replaceNumber=$number'>Replace / Rename</a>
                 </td>
             </tr>";
     }
     $panel .= "</table></form>";
     return $panel;
+}
+
+function getContentsArray(string $path): array
+{
+    define("PICTURE_FORMATS", ["png", "jpeg", "jpg"]);
+    $contents = [];
+    if (is_dir($path)) {
+        if ($directory = opendir($path)) {
+            while ($fileName = readdir($directory)) {
+                if ($fileName != "." && $fileName != "..") {
+                    if (!in_array(pathinfo($path . $fileName)["extension"], PICTURE_FORMATS)) {
+                        $contents[] = (file_get_contents(
+                            $path . $fileName,
+                            NULL,
+                            NULL,
+                            0,
+                            30)
+                        );
+                    } else {
+                        $contents[] = pathinfo($path . $fileName)["dirname"] .
+                            "/" .
+                            pathinfo($path . $fileName)["basename"];
+                    }
+                }
+            }
+        }
+    } else {
+        die("Not correct path or it's not a directory.");
+    }
+    return $contents;
 }
 
 function getFullFileNames(string $path): array
@@ -160,4 +197,8 @@ function getFullFileNames(string $path): array
         die("Not correct path or it's not a directory.");
     }
     return $fileNames;
+}
+
+function goToMain() {
+    echo "<script>location.href='fileSystem.php'</script>";
 }

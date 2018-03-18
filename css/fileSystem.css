@@ -23,3 +23,16 @@ table td {
     height: 50px;
     padding: 0;
 }
+
+a {
+    padding: 1px;
+    border: 1px solid mediumblue;
+    background-color: #5eb5e0;
+    text-decoration: none;
+    color: gold;
+    font-weight: bold;
+}
+
+.filePath {
+    width: 560px;
+}
