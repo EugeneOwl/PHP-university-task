@@ -72,16 +72,26 @@ function removeFile( string $path, int $number): void
 {
     $fileNames = getFullFileNames($path);
     if (is_dir($fileNames[$number])) {
-        rmdir($fileNames[$number]);
+        delTree($fileNames[$number]);
+        echo "<script>alert('directory removed.')</script>";
     } else {
         unlink($fileNames[$number]);
+        echo "<script>alert('file removed.')</script>";
     }
+}
+
+function delTree($dir) {
+    $files = array_diff(scandir($dir), ['.', '..']);
+    foreach ($files as $file) {
+        (is_dir("$dir/$file")) ? delTree("$dir/$file") : unlink("$dir/$file");
+    }
+    return rmdir($dir);
 }
 
 function createNew(string $path, string $fileName, $fileContents, $fileType): void
 {
-    $newFile = fopen($path . $fileName, "w");
     if ($fileType == "file") {
+        $newFile = fopen($path . $fileName, "w");
         if ($fileContents == null) {
             $fileContents = " ";
         }
@@ -91,7 +101,7 @@ function createNew(string $path, string $fileName, $fileContents, $fileType): vo
             echo "<script>alert('Problems with file creation')</script>";
         }
     } else {
-        if (mkdir($path . $fileName, 0775)) {
+        if (mkdir($path . $fileName, 0777)) {
             goToMain();
         }else {
             echo "<script>alert('Problems with directory creation')</script>";
@@ -169,9 +179,7 @@ function getContentsArray(string $path): array
                             30)
                         );
                     } else {
-                        $contents[] = pathinfo($path . $fileName)["dirname"] .
-                            "/" .
-                            pathinfo($path . $fileName)["basename"];
+                        $contents[] = $path . "/" . $fileName;
                     }
                 }
             }
