@@ -24,6 +24,7 @@
                 <li><a href="planes.html">Самолёты</a></li>
                 <li><a href="calendarPage.php">Календарь</a></li>
                 <li><a href="fileSystem/fileSystem.php">Файловый менеджер</a></li>
+                <li><a href="regexPage.php">Регулярные выражения</a></li>
             </ul>
         </div>
         <div id="content">

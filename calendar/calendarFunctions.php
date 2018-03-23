@@ -1,4 +1,5 @@
 <?php
+
 function drawCalendar(array $months, int $dayOfWeek, array $dayInMonths, array $celebrations): string
 {
     $calendarString = "<table border='1'>";
