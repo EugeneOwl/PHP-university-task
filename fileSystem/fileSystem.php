@@ -6,7 +6,7 @@ require_once "fileSystemFunctions.php";
 $path = "/home/eugene/PhpstormProjects/PHP-university-task/fileSystem/sandbox/";
 $templateEngine = new TemplateEngine();
 
-$templateEngine->setParameter([
+$templateEngine->setParameters([
     "panel" => createPanel($path),
     "content" => getContentsArray($path),
 ]);

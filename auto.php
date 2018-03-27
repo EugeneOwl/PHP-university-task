@@ -4,7 +4,7 @@ require_once "templateEngine/TemplateEngine.php";
 
 $templateEngine = new TemplateEngine();
 
-$templateEngine->setParameter([
+$templateEngine->setParameters([
     "title" => "Авто",
     "header" => "Автомобили",
     "measure" => "мм",

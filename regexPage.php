@@ -4,7 +4,7 @@ require_once "templateEngine/TemplateEngine.php";
 require_once "regex/regex.php";
 
 $templateEngine = new TemplateEngine();
-$templateEngine->setParameter([
+$templateEngine->setParameters([
     "rawText" => $rawText,
     "rawTextLength" => $rawTextReport,
     "processedText" => $processedText,
