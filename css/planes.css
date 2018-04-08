@@ -31,3 +31,11 @@ img {
 #footer p:hover {
     color: #2B5598;
 }
+
+.banner {
+    position: fixed;
+    top:30px;
+    left: 1300px;
+    width: 70px;
+    height: 50px;
+}

@@ -106,7 +106,6 @@ class TemplateEngine
     private function getDataFromDatabase(mysqli $connection, string $id): string
     {
         $sql = "SELECT name, description FROM languages WHERE id = " . $id;
-        //$data = ($connection->query($sql));
         if (($data = ($connection->query($sql))) === false) {
             return "Error while passing query.";
         }

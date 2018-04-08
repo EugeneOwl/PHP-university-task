@@ -1,0 +1,58 @@
+#wrapper {
+    background-color: whitesmoke;
+}
+
+form {
+    font-size: 30px;
+}
+
+form input {
+    font-size: 30px;
+}
+
+.window {
+    margin: 10px;
+}
+
+.name input{
+    width: 200px;
+    margin-left: 100px;
+}
+
+.framework input{
+    width: 200px;
+    margin-left: 30px;
+}
+
+.mark input{
+    width: 50px;
+    margin-left: 115px;
+}
+
+.reply {
+    padding: 20px;
+    margin: 20px;
+    width: 1120px;
+    border: 6px groove gold;
+    font-size: 30px;
+}
+
+.reply table {
+    width: 1110px;
+    border-spacing: 0;
+}
+
+.reply table td {
+    padding: 5px;
+    font-family: SansSerif;
+}
+
+.timeSegment, .RAM {
+    font-size: 30px;
+    margin: 10px;
+}
+
+.timeSegment span, .RAM span {
+    font-weight: bold;
+    text-decoration: underline;
+}
