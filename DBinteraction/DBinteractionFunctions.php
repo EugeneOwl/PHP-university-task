@@ -8,7 +8,7 @@
     function getPDOConnection(): ?PDO
     {
         try {
-            $pdo = new PDO("mysql:host=localhost", "root", "ubuntu6031");
+            $pdo = new PDO("mysql:host=localhost;charset=utf8", "root", "ubuntu6031");
         } catch (Exception $exception) {
             return null;
         }
@@ -17,7 +17,7 @@
 
     function getDataArray(PDO $pdo): array
     {
-        $sql = "SELECT name, text, imagePath FROM WT5.articles";
+        $sql = "SELECT `name`, `text`, `imagePath` FROM WT5.articles";
         $statement = $pdo->query($sql);
         return $statement ? $statement->fetchAll() : [];
     }

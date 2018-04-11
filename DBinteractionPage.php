@@ -1,9 +1,14 @@
 <?php
     require_once "templateEngine/TemplateEngine.php";
     require_once "DBinteraction/DBinteractionFunctions.php";
+    require_once "logging/logFunctions.php";
+
+    redirectLogs("/home/eugene/PhpstormProjects/PHP-university-task/logging/my_Logs.log", false);
+
+    $page = basename(__FILE__);
+    error_log("Page '$page' was loaded.");
 
     $imagesPrePath = "images/";
-
     $templateEngine = new TemplateEngine();
     $data = getData();
     if ($data) {

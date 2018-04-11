@@ -2,16 +2,19 @@
 
     define("DB_FIELDS", ["id", "name", "framework", "mark", "description"]);
 
-    function getParametersFromPanel(): array
+    function getParametersFromPanel(mysqli $connection): array
     {
         $name = isset($_POST["languageName"]) ? $_POST["languageName"] : null;
         $framework = isset($_POST["languageFramework"]) ? $_POST["languageFramework"] : null;
         $mark = isset($_POST["languageMark"]) ? $_POST["languageMark"] : null;
         $parameters = [
-            DB_FIELDS[1] => $name,
-            DB_FIELDS[2] => $framework,
-            DB_FIELDS[3] => $mark,
+            DB_FIELDS[1] => mysqli_real_escape_string($connection, $name),
+            DB_FIELDS[2] => mysqli_real_escape_string($connection, $framework),
+            DB_FIELDS[3] => mysqli_real_escape_string($connection, $mark),
         ];
+        error_log("The parameters were requested: '$name', '$framework', '$mark'" .
+            " on page " . basename($_SERVER["REQUEST_URI"]));
+
         return $parameters;
     }
 
@@ -110,7 +113,9 @@ HEADER;
 
     function getReply(): string
     {
-        $parameters = getParametersFromPanel();
+        $connection = getConnectionToDatabase();
+        $parameters = getParametersFromPanel($connection);
+        $connection->close();
         $query = getQuery($parameters);
         $dataArray = getDataArrayByQuery($query);
         $reply = getTableByArray($dataArray);
