@@ -1,0 +1,54 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+#wrapper {
+    margin: 0 280px;
+    padding: 10px 270px;
+    min-height: 1000px;
+}
+
+.article {
+    margin: 10px;
+    text-indent: 30px;
+}
+
+.form {
+    margin: 10px;
+}
+
+.form input {
+    margin: 5px;
+}
+
+.form #input1 {
+    margin: 10px;
+    width: 250px;
+    height: 100px;
+    float: left;
+}
+
+.form #input5 {
+    margin-bottom: 30px;
+    width: 80px;
+}
+
+.images {
+    margin: 0 60px;
+}
+
+#styleChanging {
+    margin: 20px;
+    font-size: 30px;
+}
+
+#styleChanging input[type='radio'] {
+    transform: scale(2);
+}
+
+#styleChanging input[type="submit"] {
+    width: 50px;
+    margin-left: 20px;
+}

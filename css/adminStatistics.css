@@ -1,0 +1,40 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 120%;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    margin-left: 50px;
+    text-decoration: none;
+    font-size: 120%;
+}
+
+#menu {
+    width: 300px;
+    margin: auto;
+}
+
+#menu div {
+    margin-top: 15px;
+}
+
+form {
+    width: 300px;
+    margin: 40px auto;
+}
+
+form input {
+    width: 100%;
+    font-size: 30px;
+    margin: 5px;
+}
+
+form textarea {
+    font-size: 30px;
+    margin: 5px;
+}

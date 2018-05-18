@@ -1,0 +1,27 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+}
+
+h3 {
+    margin: 0;
+}
+
+#wrapper {
+    width: 170px;
+    margin: auto;
+    text-align: center;
+}
+
+#wrapper input {
+    margin: 5px 0 0 0px;
+}
+
+#wrapper .button {
+    text-align: right;
+}
+
+.invalid {
+    font-size: 10px;
+}

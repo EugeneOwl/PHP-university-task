@@ -1,0 +1,32 @@
+html {
+    background-color: whitesmoke;
+}
+
+#wrapper {
+    background-color: #2B2B2B;
+    color: whitesmoke;
+}
+
+form input {
+    background-color: #2B2B2B;
+    color: whitesmoke;
+    border: 1px solid whitesmoke;
+}
+
+input[type="submit"] {
+    background-color: whitesmoke;
+    color: #2B2B2B;
+}
+
+form textarea {
+    background-color: #2B2B2B;
+    color: whitesmoke;
+}
+
+::placeholder {
+    color: whitesmoke;
+}
+
+img {
+    border: 2px solid whitesmoke;
+}
